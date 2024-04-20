@@ -7,17 +7,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wordsapp.databinding.FragmentDetailBinding
-import com.example.wordsapp.databinding.FragmentMainBinding
 
 
 class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
+
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
     }
 
@@ -128,6 +133,10 @@ class DetailFragment : Fragment() {
         adapter.submitData(wordList)
         binding.rvDetail.adapter =adapter
         binding.rvDetail.layoutManager = LinearLayoutManager(activity)
+        binding.mainToolbar.topAppBar.setOnClickListener{
+            findNavController().navigate(R.id.mainFragment )
+
+        }
         binding.mainToolbar.topAppBar.setOnMenuItemClickListener{
             when(it.itemId){
                 R.id.grid_view -> {
