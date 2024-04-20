@@ -4,18 +4,15 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 
+@Parcelize
 data class Words(
     var alphabet: String = "",
     var contentWord: String = "",
-    )
+    ):Parcelable
 
 val alphabetsData = ('A'..'Z').map{it.toString()}.toMutableList()
 
-var arrayList = arrayListOf(1, 2, 3, 4)
 
-//val alphabets = alphabetsData.forEach{
-//    it.toString()
-//}
 enum class  Wordlist(val char: String, val words: ArrayList<String>){
     A("A",arrayListOf("Apple","Ash")),
     B("B",arrayListOf("Butterfly","Brave")),
